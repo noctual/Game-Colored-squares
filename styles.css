@@ -49,11 +49,9 @@ html, body {
     width: 500px;
     height: 100%;
     margin: 0 auto;
-}
-
-.header__level {
-    height: 60px;
-    line-height: 60px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
     font-family: Helvetica, Arial, sans-serif;
     font-size: 30px;
 }

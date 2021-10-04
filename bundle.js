@@ -1,12 +1,20 @@
 // *** CONSTS ***
 const startColorDiff = 255 * 255 * 255 / 32
 const startSize = 2
+const levelTimeSec = 10  
 
 // *** VARIABLES ***
 let level = 0
+let remainingTime = 0
+let timerInervalId = null
 
 const onClickHandler = (event) => {
     const win = event.target.classList.contains('squares_differentСolor')
+    gameOverHandler(win)
+}
+
+const gameOverHandler = (win) => {
+    clearInterval(timerInervalId)
     level = win ? ++level : 0
     localStorage.setItem('level', level)
     const { size, differentBlockIndex, mainColor, differentColor } = generateLevel()
@@ -70,6 +78,19 @@ const render = (size, differentBlockIndex, mainColor, differentColor) => {
 
     const levelNumContainer = document.getElementsByClassName('header__levelNum')[0]
     levelNumContainer.textContent = level
+
+    // *** TIMER ***
+    const timerContainer = document.getElementsByClassName('header__timer')[0]
+    remainingTime = levelTimeSec
+    timerContainer.textContent = remainingTime
+    timerInervalId = setInterval(() => {
+        remainingTime--
+        if (remainingTime <= 0) {
+            clearInterval(timerInervalId)
+            gameOverHandler(false)
+        }
+        timerContainer.textContent = remainingTime
+    }, 1000)
 }
 
 document.addEventListener('DOMContentLoaded', () => {
