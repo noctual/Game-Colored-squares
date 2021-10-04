@@ -1,0 +1,40 @@
+html, body {
+    height: 100%;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.squares {
+    background-color: #ef5e5f;
+    display: inline-block;
+    padding: 3px;
+}
+
+.squares__container {
+    background-color: #dddddd;
+    padding: 4px;
+    border-radius: 2px;
+    display: grid;
+    grid-template-columns: repeat(var(--size), 1fr);
+    grid-gap: 4px;
+    width: 500px;
+    height: 500px;
+}
+
+.squares__block {
+    background-color: var(--main-color);
+    border-radius: 2px;
+}
+
+.squares_differentСolor {
+    background-color: var(--different-color);
+}
