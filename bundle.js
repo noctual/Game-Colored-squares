@@ -35,6 +35,8 @@ const generateLevel = () => {
         differentColor: `#${differentColor.toString(16)}`,
     }
 
+    localStorage.setItem('levelData', JSON.stringify(levelData))
+
     return levelData
 }
 
@@ -67,6 +69,14 @@ const render = (size, differentBlockIndex, mainColor, differentColor) => {
 }
 
 document.addEventListener('DOMContentLoaded', () => {
-    const { size, differentBlockIndex, mainColor, differentColor } = generateLevel()
+    const {
+        size,
+        differentBlockIndex,
+        mainColor,
+        differentColor
+    } = localStorage.hasOwnProperty('levelData')
+        ? JSON.parse(localStorage.getItem('levelData'))
+        : generateLevel()
+
     render(size, differentBlockIndex, mainColor, differentColor)
 })
