@@ -38,3 +38,22 @@ html, body {
 .squares_differentСolor {
     background-color: var(--different-color);
 }
+
+.header {
+    width: 100%;
+    height: 60px;
+    background-color: var(--main-color);
+}
+
+.header__container{
+    width: 500px;
+    height: 100%;
+    margin: 0 auto;
+}
+
+.header__level {
+    height: 60px;
+    line-height: 60px;
+    font-family: Helvetica, Arial, sans-serif;
+    font-size: 30px;
+}

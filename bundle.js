@@ -67,6 +67,9 @@ const render = (size, differentBlockIndex, mainColor, differentColor) => {
         (block) => block.classList.remove('squares_differentСolor')
     )
     container.children[differentBlockIndex].classList.add('squares_differentСolor')
+
+    const levelNumContainer = document.getElementsByClassName('header__levelNum')[0]
+    levelNumContainer.textContent = level
 }
 
 document.addEventListener('DOMContentLoaded', () => {
