@@ -8,6 +8,7 @@ let level = 0
 const onClickHandler = (event) => {
     const win = event.target.classList.contains('squares_differentСolor')
     level = win ? ++level : 0
+    localStorage.setItem('level', level)
     const { size, differentBlockIndex, mainColor, differentColor } = generateLevel()
     render(size, differentBlockIndex, mainColor, differentColor)
 }
@@ -69,6 +70,7 @@ const render = (size, differentBlockIndex, mainColor, differentColor) => {
 }
 
 document.addEventListener('DOMContentLoaded', () => {
+    level = localStorage.getItem('level') || 0
     const {
         size,
         differentBlockIndex,
